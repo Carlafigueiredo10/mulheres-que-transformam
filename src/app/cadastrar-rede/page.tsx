@@ -273,8 +273,3 @@ export default function CadastrarRedePage() {
     </div>
   );
 }
-
-export const metadata = {
-  title: 'Cadastrar Rede | Mulheres que Transformam',
-  description: 'Registre sua iniciativa de mulheres no serviço público e amplie o alcance da sua rede no ecossistema nacional.',
-};
