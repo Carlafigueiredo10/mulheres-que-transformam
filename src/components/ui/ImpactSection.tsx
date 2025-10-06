@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function ImpactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -187,8 +188,8 @@ export default function ImpactSection() {
               </div>
             </a>
 
-            <a
-              href="/orgao/mtur"
+            <Link
+              href="/orgao/mtur/"
               className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
             >
               <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mb-6 group-hover:from-purple-200 group-hover:to-purple-300 transition-all duration-300 group-hover:scale-110">
@@ -213,7 +214,7 @@ export default function ImpactSection() {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -8,13 +8,13 @@ interface ModulePageProps {
 
 export default async function ModulePage({ params }: ModulePageProps) {
   const { slug } = await params;
-  const module = modules.find(m => m.id === slug);
+  const moduleData = modules.find(m => m.slug === params.slug);
 
-  if (!module) {
+  if (!moduleData) {
     notFound();
   }
 
-  const currentIndex = modules.findIndex(m => m.id === slug);
+  const currentIndex = modules.findIndex(m => m.slug === params.slug);
   const previousModule = currentIndex > 0 ? modules[currentIndex - 1] : null;
   const nextModule = currentIndex < modules.length - 1 ? modules[currentIndex + 1] : null;
 
@@ -24,15 +24,15 @@ export default async function ModulePage({ params }: ModulePageProps) {
       <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="text-6xl mb-6">{module.icon}</div>
+            <div className="text-6xl mb-6">{moduleData.icon}</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
-                {module.title.split(' ')[0]}
+                {moduleData.title.split(' ')[0]}
               </span>{' '}
-              {module.title.split(' ').slice(1).join(' ')}
+              {moduleData.title.split(' ').slice(1).join(' ')}
             </h1>
             <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-              {module.description}
+              {moduleData.description}
             </p>
           </div>
         </div>
@@ -47,15 +47,15 @@ export default async function ModulePage({ params }: ModulePageProps) {
             
             <div className="pl-6">
               <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl flex items-center justify-center mb-8">
-                <span className="text-3xl">{module.icon}</span>
+                <span className="text-3xl">{moduleData.icon}</span>
               </div>
 
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                {module.title}
+                {moduleData.title}
               </h2>
               
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                {module.description}
+                {moduleData.description}
               </p>
 
               {/* Objectives */}
@@ -64,7 +64,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
                   🎯 Objetivos Específicos
                 </h3>
                 <ul className="space-y-3">
-                  {module.objectives.map((objective, index) => (
+                  {moduleData.objectives.map((objective, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="text-blue-600 font-bold mt-1">✓</span>
                       <span className="text-gray-700">{objective}</span>
@@ -79,7 +79,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
                   🚀 Estratégias de Implementação
                 </h3>
                 <ul className="space-y-4">
-                  {module.strategies.map((strategy, index) => (
+                  {moduleData.strategies.map((strategy, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="text-blue-600 font-bold mt-1">→</span>
                       <span className="text-gray-700">{strategy}</span>
@@ -89,13 +89,13 @@ export default async function ModulePage({ params }: ModulePageProps) {
               </div>
 
               {/* Barriers (if available) */}
-              {module.barriers && (
+              {moduleData.barriers && (
                 <div className="bg-orange-50 p-8 rounded-2xl mb-8">
                   <h3 className="text-xl font-bold text-orange-600 mb-4 flex items-center">
                     ⚠️ Barreiras Identificadas
                   </h3>
                   <ul className="space-y-3">
-                    {module.barriers.map((barrier, index) => (
+                    {moduleData.barriers.map((barrier, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <span className="text-orange-600 font-bold mt-1">!</span>
                         <span className="text-gray-700">{barrier}</span>
@@ -111,7 +111,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
                   📊 Indicadores de Sucesso
                 </h3>
                 <ul className="space-y-3">
-                  {module.indicators.map((indicator, index) => (
+                  {moduleData.indicators.map((indicator, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="text-green-600 font-bold mt-1">📈</span>
                       <span className="text-gray-700">{indicator}</span>

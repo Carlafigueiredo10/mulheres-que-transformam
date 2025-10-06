@@ -112,7 +112,7 @@ export default function TestimonialsSection() {
                   {testimonials[currentTestimonial].avatar}
                 </div>
                 <blockquote className="text-2xl md:text-3xl text-gray-800 font-medium leading-relaxed mb-8 italic">
-                  "{testimonials[currentTestimonial].quote}"
+                  &quot;{testimonials[currentTestimonial].quote}&quot;
                 </blockquote>
                 <div>
                   <div className="text-xl font-bold text-gray-900 mb-1">

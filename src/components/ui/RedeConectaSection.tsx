@@ -83,7 +83,7 @@ export default function RedeConectaSection() {
             Rede Conecta
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-              Mulheres que Transformam
+              &quot;Mulheres que Transformam&quot;
             </span>
           </h2>
           
