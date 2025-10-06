@@ -8,13 +8,13 @@ interface ModulePageProps {
 
 export default async function ModulePage({ params }: ModulePageProps) {
   const { slug } = await params;
-  const moduleData = modules.find(m => m.slug === params.slug);
+  const moduleData = modules.find(m => m.slug === slug); // ← Aqui usar 'slug' ao invés de 'params.slug'
 
   if (!moduleData) {
     notFound();
   }
 
-  const currentIndex = modules.findIndex(m => m.slug === params.slug);
+  const currentIndex = modules.findIndex(m => m.slug === slug);
   const previousModule = currentIndex > 0 ? modules[currentIndex - 1] : null;
   const nextModule = currentIndex < modules.length - 1 ? modules[currentIndex + 1] : null;
 
@@ -172,6 +172,6 @@ export default async function ModulePage({ params }: ModulePageProps) {
 
 export async function generateStaticParams() {
   return modules.map((module) => ({
-    slug: module.id,
+    slug: module.slug, // ← Trocar 'module.id' por 'module.slug'
   }));
 }
