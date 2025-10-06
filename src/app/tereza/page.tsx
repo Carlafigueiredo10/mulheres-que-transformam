@@ -8,6 +8,11 @@ interface Message {
   content: string;
 }
 
+export const metadata = {
+  title: 'Cadastrar Rede | Mulheres que Transformam',
+  description: 'Registre sua iniciativa de mulheres no serviço público e amplie o alcance da sua rede no ecossistema nacional.',
+};
+
 export default function TerezaPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
