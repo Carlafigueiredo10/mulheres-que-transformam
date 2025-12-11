@@ -1,6 +1,6 @@
 'use client';
 
-import { aspads, aspadInfo, ASPAD } from '@/data/aspads';
+import { aspads, aspadInfo } from '@/data/aspads';
 import { useState } from 'react';
 
 export default function AspadSection() {

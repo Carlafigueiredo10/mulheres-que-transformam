@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { documentosBiblioteca, tiposDocumento, DocumentoBiblioteca } from '@/data/biblioteca';
+import { documentosBiblioteca, tiposDocumento } from '@/data/biblioteca';
 
 export default function BibliotecaPage() {
   const [filtroTipo, setFiltroTipo] = useState<string>('todos');

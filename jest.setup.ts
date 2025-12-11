@@ -9,7 +9,7 @@ global.IntersectionObserver = class IntersectionObserver {
     return [];
   }
   unobserve() {}
-} as any;
+} as unknown as typeof IntersectionObserver;
 
 // Mock do window.matchMedia (usado para responsividade)
 Object.defineProperty(window, 'matchMedia', {

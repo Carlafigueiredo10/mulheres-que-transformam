@@ -1,6 +1,6 @@
 'use client';
 
-import { SeloNivel, SeloInfo, selosInfo } from '@/data/orgaos-aderentes';
+import { SeloNivel, selosInfo } from '@/data/orgaos-aderentes';
 
 interface SeloProps {
   nivel: SeloNivel;

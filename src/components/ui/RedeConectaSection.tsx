@@ -97,7 +97,7 @@ export default function RedeConectaSection() {
 
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-medium text-lg shadow-lg">
             <span className="text-2xl">🌟</span>
-            "Conectando redes. Ampliando vozes. Transformando o serviço público."
+            &ldquo;Conectando redes. Ampliando vozes. Transformando o serviço público.&rdquo;
           </div>
         </div>
 

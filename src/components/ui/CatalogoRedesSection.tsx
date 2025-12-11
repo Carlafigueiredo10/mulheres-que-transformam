@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { activeNetworks, networkCategories, networkThemes, Network } from '@/data/networks';
+import { activeNetworks, networkCategories, networkThemes } from '@/data/networks';
 
 export default function CatalogoRedesSection() {
   const [isVisible, setIsVisible] = useState(false);
