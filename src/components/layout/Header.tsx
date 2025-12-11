@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { mainNavigation } from '@/data/navigation';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,17 +16,6 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navigation = [
-    { label: 'Início', href: '/' },
-    { label: 'Módulos', href: '/#modulos' },
-    { label: 'Biblioteca', href: '/biblioteca' },
-    { label: 'ASPADs', href: '/aspads' },
-    { label: 'Observatório', href: '/#observatorio' },
-    { label: 'Conheça Tereza', href: '/tereza', special: true },
-    { label: 'Eventos', href: '/eventos' },
-    { label: 'Contato', href: '/#contato' }
-  ];
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -41,17 +31,17 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
+            {mainNavigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={
-                  item.special
+                  item.featured
                     ? 'text-white hover:text-blue-600 hover:bg-yellow-400 bg-yellow-400/20 px-4 py-2 rounded-full border border-yellow-400/30 transition-all duration-300 font-medium'
                     : 'text-white hover:text-yellow-300 transition-colors duration-300 font-medium'
                 }
               >
-                {item.label}
+                {item.name}
               </Link>
             ))}
           </nav>
@@ -71,18 +61,18 @@ export default function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-white/20">
             <nav className="flex flex-col space-y-2">
-              {navigation.map((item) => (
+              {mainNavigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={
-                    item.special
+                    item.featured
                       ? 'text-white hover:text-blue-600 hover:bg-yellow-400 bg-yellow-400/20 px-4 py-2 rounded-full border border-yellow-400/30 transition-all duration-300 font-medium'
                       : 'text-white hover:text-yellow-300 transition-colors duration-300 font-medium py-2'
                   }
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.label}
+                  {item.name}
                 </Link>
               ))}
             </nav>

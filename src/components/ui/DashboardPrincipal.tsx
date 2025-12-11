@@ -7,6 +7,31 @@ import Selo from '@/components/ui/Selo';
 
 type Nucleo = 'federal' | 'federativo' | 'local';
 
+// Mapa de cores estático para Tailwind (JIT precisa de classes completas)
+const colorMap = {
+  blue: {
+    border: 'border-blue-500',
+    borderActive: 'border-blue-500',
+    bg: 'bg-blue-50',
+    text: 'text-blue-700',
+    textMedium: 'text-blue-600',
+  },
+  green: {
+    border: 'border-green-500',
+    borderActive: 'border-green-500',
+    bg: 'bg-green-50',
+    text: 'text-green-700',
+    textMedium: 'text-green-600',
+  },
+  purple: {
+    border: 'border-purple-500',
+    borderActive: 'border-purple-500',
+    bg: 'bg-purple-50',
+    text: 'text-purple-700',
+    textMedium: 'text-purple-600',
+  },
+} as const;
+
 export default function DashboardPrincipal() {
   const [isVisible, setIsVisible] = useState(false);
   const [nucleoAtivo, setNucleoAtivo] = useState<Nucleo>('federal');
@@ -143,36 +168,41 @@ export default function DashboardPrincipal() {
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {Object.entries(nucleos).map(([key, nucleo]) => (
-                <button
-                  key={key}
-                  onClick={() => setNucleoAtivo(key as Nucleo)}
-                  className={`p-6 rounded-xl border-2 transition-all duration-300 text-left ${
-                    nucleoAtivo === key
-                      ? `border-${nucleo.cor}-500 bg-${nucleo.cor}-50`
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                >
-                  <div className="flex items-center mb-3">
-                    <span className="text-3xl mr-3">{nucleo.icone}</span>
-                    <h4 className={`text-xl font-bold ${
-                      nucleoAtivo === key ? `text-${nucleo.cor}-700` : 'text-gray-800'
+              {Object.entries(nucleos).map(([key, nucleo]) => {
+                const colors = colorMap[nucleo.cor as keyof typeof colorMap];
+                const isActive = nucleoAtivo === key;
+
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setNucleoAtivo(key as Nucleo)}
+                    className={`p-6 rounded-xl border-2 transition-all duration-300 text-left ${
+                      isActive
+                        ? `${colors.borderActive} ${colors.bg}`
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center mb-3">
+                      <span className="text-3xl mr-3">{nucleo.icone}</span>
+                      <h4 className={`text-xl font-bold ${
+                        isActive ? colors.text : 'text-gray-800'
+                      }`}>
+                        {nucleo.titulo}
+                      </h4>
+                    </div>
+                    <p className={`text-sm ${
+                      isActive ? colors.textMedium : 'text-gray-600'
                     }`}>
-                      {nucleo.titulo}
-                    </h4>
-                  </div>
-                  <p className={`text-sm ${
-                    nucleoAtivo === key ? `text-${nucleo.cor}-600` : 'text-gray-600'
-                  }`}>
-                    {nucleo.descricao}
-                  </p>
-                  <div className={`text-2xl font-bold mt-3 ${
-                    nucleoAtivo === key ? `text-${nucleo.cor}-700` : 'text-gray-700'
-                  }`}>
-                    {nucleo.orgaos.length} órgãos
-                  </div>
-                </button>
-              ))}
+                      {nucleo.descricao}
+                    </p>
+                    <div className={`text-2xl font-bold mt-3 ${
+                      isActive ? colors.text : 'text-gray-700'
+                    }`}>
+                      {nucleo.orgaos.length} órgãos
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -185,7 +215,7 @@ export default function DashboardPrincipal() {
             <div className="flex items-center mb-8">
               <span className="text-4xl mr-4">{nucleoSelecionado.icone}</span>
               <div>
-                <h3 className={`text-3xl font-bold text-${nucleoSelecionado.cor}-700 mb-2`}>
+                <h3 className={`text-3xl font-bold mb-2 ${colorMap[nucleoSelecionado.cor as keyof typeof colorMap].text}`}>
                   {nucleoSelecionado.titulo}
                 </h3>
                 <p className="text-gray-600">{nucleoSelecionado.descricao}</p>

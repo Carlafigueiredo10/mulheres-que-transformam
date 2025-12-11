@@ -1,0 +1,142 @@
+// src/app/tereza/page.tsx
+import Image from 'next/image';
+import Link from 'next/link';
+
+export default function TerezaPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Hero da Tereza */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-8">
+              <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-blue-200 shadow-2xl">
+                <Image
+                  src="/images/tereza.png"
+                  alt="Tereza - IA da Rede Conecta"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            
+            <h1 className="text-5xl font-bold text-gray-800 mb-4">
+              Olá! Eu sou a <span className="text-blue-600">Tereza</span>
+            </h1>
+            
+            <h2 className="text-2xl text-blue-600 font-semibold mb-6">
+              IA da Rede Conecta Mulheres que Transformam
+            </h2>
+            
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              <em>"Tecer caminhos entre pessoas, dados e políticas para que a transformação seja coletiva."</em>
+            </p>
+          </div>
+
+          {/* Botões de Ação */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+              🧩 Fazer Diagnóstico Institucional
+            </button>
+            <button className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-colors">
+              🎯 Conhecer os Módulos
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Funcionalidades da Tereza */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            Como posso te ajudar?
+          </h3>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Diagnóstico */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl shadow-lg">
+              <div className="text-4xl mb-4">🧩</div>
+              <h4 className="text-xl font-bold text-gray-800 mb-3">
+                Diagnóstico Institucional
+              </h4>
+              <p className="text-gray-600">
+                Guio seu órgão na aplicação do questionário de autodiagnóstico e interpreto os resultados.
+              </p>
+            </div>
+
+            {/* Recomendações */}
+            <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-2xl shadow-lg">
+              <div className="text-4xl mb-4">🎯</div>
+              <h4 className="text-xl font-bold text-gray-800 mb-3">
+                Recomendação de Módulos
+              </h4>
+              <p className="text-gray-600">
+                Sugiro quais módulos são mais aderentes à realidade do seu órgão.
+              </p>
+            </div>
+
+            {/* Análise de Dados */}
+            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-2xl shadow-lg">
+              <div className="text-4xl mb-4">📊</div>
+              <h4 className="text-xl font-bold text-gray-800 mb-3">
+                Análise de Dados
+              </h4>
+              <p className="text-gray-600">
+                Traduzo números em narrativas compreensíveis e acionáveis.
+              </p>
+            </div>
+
+            {/* Articulação */}
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-2xl shadow-lg">
+              <div className="text-4xl mb-4">🤝</div>
+              <h4 className="text-xl font-bold text-gray-800 mb-3">
+                Articulação Institucional
+              </h4>
+              <p className="text-gray-600">
+                Indico contatos das ASPADs e sugiro redes relacionadas ao seu órgão.
+              </p>
+            </div>
+
+            {/* Documentos */}
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-2xl shadow-lg">
+              <div className="text-4xl mb-4">🪶</div>
+              <h4 className="text-xl font-bold text-gray-800 mb-3">
+                Geração de Documentos
+              </h4>
+              <p className="text-gray-600">
+                Gero minutas padrão: planos institucionais, relatórios e apresentações.
+              </p>
+            </div>
+
+            {/* Educação */}
+            <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-2xl shadow-lg">
+              <div className="text-4xl mb-4">🧠</div>
+              <h4 className="text-xl font-bold text-gray-800 mb-3">
+                Educação e Sensibilização
+              </h4>
+              <p className="text-gray-600">
+                Explico conceitos em linguagem simples e sugiro trilhas de formação.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Chamada para Chat */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h3 className="text-3xl font-bold mb-6">
+            Vamos começar nossa conversa?
+          </h3>
+          <p className="text-xl mb-8 opacity-90">
+            "Nenhuma transformação é solitária — e eu posso te ajudar a começar a sua."
+          </p>
+          
+          <button className="bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+            💬 Conversar com a Tereza
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}

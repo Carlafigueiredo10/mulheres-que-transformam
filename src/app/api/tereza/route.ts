@@ -5,10 +5,79 @@ interface Message {
   content: string;
 }
 
+// Função de retry com backoff exponencial
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit,
+  maxRetries = 3,
+  baseDelay = 1000
+): Promise<Response> {
+  let lastError: Error | null = null;
+
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      // Adiciona timeout de 30 segundos
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const response = await fetch(url, {
+        ...options,
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      // Retry apenas em erros 5xx ou rate limit (429)
+      if (response.ok || (response.status >= 400 && response.status < 500 && response.status !== 429)) {
+        return response;
+      }
+
+      // Se não OK e é erro retryable, continua
+      lastError = new Error(`HTTP ${response.status}: ${response.statusText}`);
+
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error('Erro desconhecido');
+
+      // Não faz retry em timeout ou AbortError na última tentativa
+      if (attempt === maxRetries) {
+        break;
+      }
+    }
+
+    // Backoff exponencial: 1s, 2s, 4s
+    const delay = baseDelay * Math.pow(2, attempt);
+    console.log(`Tentativa ${attempt + 1} falhou. Tentando novamente em ${delay}ms...`);
+    await new Promise(resolve => setTimeout(resolve, delay));
+  }
+
+  throw lastError || new Error('Falha após múltiplas tentativas');
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { messages }: { messages: Message[] } = await request.json();
-    
+
+    // Validação inline (sem dependências externas)
+    if (!messages?.length || messages.length > 20) {
+      return NextResponse.json(
+        { error: 'Número inválido de mensagens (máx: 20)' },
+        { status: 400 }
+      );
+    }
+
+    const mensagemInvalida = messages.find(m =>
+      !['user', 'assistant'].includes(m.role) ||
+      !m.content?.length ||
+      m.content.length > 5000
+    );
+
+    if (mensagemInvalida) {
+      return NextResponse.json(
+        { error: 'Mensagem inválida (máx: 5000 caracteres)' },
+        { status: 400 }
+      );
+    }
+
     const apiKey = process.env.OPENAI_API_KEY;
     
     if (!apiKey) {
@@ -16,14 +85,17 @@ export async function POST(request: NextRequest) {
       throw new Error('Chave da API não configurada');
     }
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'gpt-4',
+    // Usa fetchWithRetry com 3 tentativas e backoff exponencial
+    const response = await fetchWithRetry(
+      'https://api.openai.com/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        model: 'gpt-4o-mini', // 60x mais barato que GPT-4, perfeito para assistente
         messages: [
           {
             role: 'system',
@@ -85,7 +157,10 @@ Seja sempre acolhedora, técnica, prática e focada em soluções. Use linguagem
         presence_penalty: 0.1,
         frequency_penalty: 0.1,
       }),
-    });
+    },
+    3, // maxRetries
+    1000 // baseDelay (1s)
+    );
 
     if (!response.ok) {
       const error = await response.text();
