@@ -37,7 +37,7 @@ export default function ObservatorySection() {
               para transformar desigualdade em compromisso institucional.
             </p>
             <Link
-              href="#"
+              href="/observatorio"
               className="inline-block bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105"
             >
               Acessar Dashboard
