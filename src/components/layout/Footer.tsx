@@ -33,14 +33,14 @@ export default function Footer() {
               <Link href="/modulos/estimulo" className="block text-slate-300 hover:text-yellow-400 transition-colors">
                 Estímulo ao Interesse para Liderar
               </Link>
-              <Link href="/modulos/normativo" className="block text-slate-300 hover:text-yellow-400 transition-colors">
-                Apoio Normativo e Regulação
-              </Link>
               <Link href="/modulos/infraestrutura" className="block text-slate-300 hover:text-yellow-400 transition-colors">
-                Infraestrutura de Sustentação
+                Infraestrutura e Cuidado
               </Link>
               <Link href="/modulos/corresponsabilidade" className="block text-slate-300 hover:text-yellow-400 transition-colors">
-                Corresponsabilidade Institucional
+                Corresponsabilidade
+              </Link>
+              <Link href="/modulos/interseccionalidade" className="block text-slate-300 hover:text-yellow-400 transition-colors">
+                Diversidade e Interseccionalidade
               </Link>
             </div>
           </div>

@@ -103,38 +103,9 @@ export const modules: Module[] = [
     ]
   },
   {
-    id: 'normativo',
-    title: 'Apoio Normativo e Regulação',
-    description: 'Aprimoramento ou criação de normas e dispositivos legais que sustentem a paridade como compromisso de gestão.',
-    icon: '⚖️',
-    path: '/modulos/normativo',
-    objectives: [
-      'Elaborar marcos normativos para paridade em cargos de liderança',
-      'Regulamentar critérios objetivos para nomeações e promoções',
-      'Estabelecer mecanismos de monitoramento e controle',
-      'Criar sanções e incentivos para cumprimento das metas',
-      'Definir responsabilidades institucionais claras',
-      'Garantir alinhamento com legislação existente sobre equidade'
-    ],
-    strategies: [
-      'Decreto Presidencial: Estabelecimento formal da política de paridade',
-      'Portarias Ministeriais: Regulamentação específica por órgão',
-      'Instruções Normativas: Procedimentos operacionais detalhados',
-      'Resoluções de Comitês: Diretrizes para comitês de seleção',
-      'Manuais e Guias: Orientações práticas para gestores'
-    ],
-    indicators: [
-      'Número de normas publicadas sobre paridade de gênero',
-      'Percentual de órgãos com regulamentação interna',
-      'Taxa de cumprimento das metas estabelecidas',
-      'Número de gestores capacitados nas novas normas',
-      'Redução de contestações judiciais sobre nomeações'
-    ]
-  },
-  {
     id: 'infraestrutura',
-    title: 'Infraestrutura de Sustentação',
-    description: 'Medidas estruturais para garantir permanência e desempenho das mulheres, como horários flexíveis e formatos de trabalho remoto.',
+    title: 'Infraestrutura e Cuidado',
+    description: 'Políticas reais de conciliação trabalho-família e medidas estruturais (jornada flexível, trabalho remoto, apoio à parentalidade) que garantem a permanência das mulheres na liderança.',
     icon: '🏗️',
     path: '/modulos/infraestrutura',
     objectives: [
@@ -162,8 +133,8 @@ export const modules: Module[] = [
   },
   {
     id: 'corresponsabilidade',
-    title: 'Corresponsabilidade Institucional',
-    description: 'Ações voltadas à sensibilização, pactuação e formação de gestores homens com poder decisório.',
+    title: 'Corresponsabilidade',
+    description: 'Engajar homens como aliados na mudança: sensibilização, pactuação e formação de gestores com poder decisório.',
     icon: '🤝',
     path: '/modulos/corresponsabilidade',
     objectives: [
@@ -194,6 +165,42 @@ export const modules: Module[] = [
       'Desconhecimento: Falta de informação sobre desigualdades estruturais',
       'Cultura Organizacional: Tradições e práticas enraizadas',
       'Pressão de Pares: Influência negativa de grupos conservadores'
+    ]
+  },
+  {
+    id: 'interseccionalidade',
+    title: 'Diversidade e Interseccionalidade',
+    description: 'Foco no "teto de concreto" enfrentado por mulheres negras, indígenas, com deficiência e LGBTQIAPN+, garantindo que a paridade não seja apenas para algumas.',
+    icon: '🌈',
+    path: '/modulos/interseccionalidade',
+    objectives: [
+      'Desagregar dados de liderança por raça, etnia, deficiência e território',
+      'Estabelecer metas específicas para mulheres negras e indígenas em cargos de chefia',
+      'Criar trilhas de desenvolvimento sensíveis às múltiplas barreiras enfrentadas',
+      'Combater o "teto de concreto" que bloqueia mulheres racializadas',
+      'Garantir representatividade nas instâncias decisórias',
+      'Promover letramento racial e sobre capacitismo entre lideranças'
+    ],
+    strategies: [
+      'Metas Interseccionais: Recortes de raça, deficiência e território nas metas de paridade',
+      'Programas Específicos: Trilhas de mentoria e formação para mulheres negras e indígenas',
+      'Censo Institucional: Mapeamento periódico do perfil das lideranças',
+      'Comitês com Recorte Racial: Participação obrigatória de mulheres negras nas decisões',
+      'Parcerias com Coletivos: Articulação com redes de mulheres negras, indígenas e PCDs'
+    ],
+    indicators: [
+      'Percentual de mulheres negras em cargos de natureza especial',
+      'Representatividade de mulheres indígenas e PCDs em chefias',
+      'Diversidade racial nos bancos de talentos',
+      'Número de programas com recorte interseccional ativos',
+      'Avaliação de pertencimento por grupo demográfico'
+    ],
+    barriers: [
+      'Teto de Concreto: Barreira estrutural que vai além do "teto de vidro" para mulheres racializadas',
+      'Dados Invisíveis: Ausência de desagregação por raça, etnia e deficiência',
+      'Universalismo Falso: Políticas "para mulheres" que beneficiam só as brancas',
+      'Solidão Racial: Isolamento de mulheres negras e indígenas em espaços de poder',
+      'Capacitismo: Desconsideração das necessidades de mulheres com deficiência'
     ]
   }
 ];

@@ -38,7 +38,7 @@ export default function ImpactSection() {
       color: 'from-indigo-500 to-blue-600'
     },
     {
-      number: '7',
+      number: '6',
       label: 'Módulos de Atuação',
       description: 'Eixos estratégicos para transformar a cultura organizacional e promover liderança feminina',
       color: 'from-cyan-500 to-teal-500'
@@ -260,7 +260,7 @@ export default function ImpactSection() {
                     Escolha Livre do Módulo
                   </h4>
                   <p className="text-gray-600">
-                    Decide por qual dos 7 módulos começar: Liderança, Cultura, Capacitação, Conciliação, Paridade, Comunicação ou Monitoramento.
+                    Decide por qual dos 6 módulos começar: Legitimidade, Ampliação, Estímulo, Infraestrutura e Cuidado, Corresponsabilidade ou Diversidade e Interseccionalidade.
                   </p>
                 </div>
 

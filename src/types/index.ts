@@ -10,6 +10,19 @@ export interface Module {
   barriers?: string[];
 }
 
+export interface EixoTransversal {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  icon: string;
+  reference?: string;
+  tension: string;
+  actions: string[];
+  indicator: string;
+  normativeReference?: string;
+}
+
 export interface NewsItem {
   id: string;
   date: string;
