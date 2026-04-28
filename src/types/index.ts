@@ -1,3 +1,10 @@
+export interface Submodule {
+  id: string;
+  title: string;
+  description?: string;
+  indicators: string[];
+}
+
 export interface Module {
   id: string;
   title: string;
@@ -8,6 +15,7 @@ export interface Module {
   strategies: string[];
   indicators: string[];
   barriers?: string[];
+  submodules?: Submodule[];
 }
 
 export interface EixoTransversal {

@@ -38,7 +38,7 @@ export const eixosTransversais: EixoTransversal[] = [
   {
     id: 'letramento-digital',
     title: 'Letramento Digital e Capacitação',
-    shortTitle: 'Letramento Digital',
+    shortTitle: 'Capacitação',
     description:
       'Preparar mulheres para a transformação tecnológica e para identificar e combater vieses algorítmicos que reproduzem desigualdades de gênero e raça.',
     icon: '💻',

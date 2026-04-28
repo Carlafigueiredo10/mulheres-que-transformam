@@ -61,9 +61,9 @@ export default function HomeHero() {
         </div>
 
         <CinematicTitle
-          primary="Mulheres que transformam"
-          accent="as estruturas de poder."
-          subtitle="Programa federal pela paridade de gênero na liderança pública. Meta: 50% até 2027."
+          primary="Mulheres que"
+          accent="transformam."
+          subtitle="Programa federal pela paridade de gênero na liderança pública."
           softSweep
           energyDelay={1900}
         />

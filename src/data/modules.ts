@@ -23,11 +23,10 @@ export const modules: Module[] = [
       'Treinamento Organizacional: Capacitação sobre viés inconsciente e liderança inclusiva'
     ],
     indicators: [
-      'Aumento da participação feminina em reuniões de alto nível',
-      'Redução de interrupções e questionamentos direcionados às líderes mulheres',
-      'Maior tempo de fala das mulheres em fóruns decisórios',
-      'Aumento na cobertura midiática positiva sobre liderança feminina',
-      'Crescimento nas avaliações de satisfação das líderes atuais'
+      'Percentual de lideranças femininas com visibilidade institucional (em sites, boletins, eventos oficiais)',
+      'Número de eventos internos voltados à valorização de lideranças femininas',
+      'Número de entrevistas ou perfis de lideranças femininas divulgados institucionalmente',
+      'Evolução da percepção de reconhecimento institucional das mulheres líderes (via pesquisa interna)'
     ]
   },
   {
@@ -52,11 +51,10 @@ export const modules: Module[] = [
       'Transparência: Publicação regular de dados sobre representatividade por órgão'
     ],
     indicators: [
-      'Percentual de mulheres nomeadas para cargos de natureza especial',
-      'Tempo médio para promoção por gênero em cada órgão',
-      'Diversidade de perfis nos processos seletivos',
-      'Número de mulheres no banco de talentos por área',
-      'Taxa de permanência em cargos de liderança por gênero'
+      'Percentual de mulheres nomeadas em cargos DAS/FCPE no período de monitoramento',
+      'Número absoluto de mulheres nomeadas em cargos de direção e assessoramento',
+      'Número de processos seletivos internos com previsão de meta ou reserva de vagas para mulheres',
+      'Existência e número de atos normativos com previsão de paridade ou critério de gênero na nomeação'
     ],
     barriers: [
       'Redes Informais: Acesso limitado às redes de indicação e influência',
@@ -88,11 +86,10 @@ export const modules: Module[] = [
       'Desenvolvimento Pessoal: Workshops sobre autoconfiança e comunicação assertiva'
     ],
     indicators: [
-      'Número de mulheres participando em programas de desenvolvimento',
-      'Taxa de mulheres que se candidatam a posições de liderança',
-      'Avaliação de confiança e interesse em liderar (pesquisas)',
-      'Número de redes de mentoria ativas',
-      'Progressão de carreira das participantes dos programas'
+      'Número de servidoras inscritas em ações de formação com foco em liderança',
+      'Percentual de participantes que manifestam intenção de ocupar funções de liderança após o ciclo formativo (pesquisa pré/pós)',
+      'Número de redes de mentoria criadas, fortalecidas ou reativadas',
+      'Número de mulheres que se candidataram a cargos de gestão após participação nas ações do módulo'
     ],
     barriers: [
       'Síndrome da Impostora: Falta de confiança nas próprias capacidades',
@@ -124,11 +121,35 @@ export const modules: Module[] = [
       'Pausas para Cuidados: Intervalos para responsabilidades familiares'
     ],
     indicators: [
-      'Taxa de permanência de mulheres em cargos de liderança',
-      'Índice de satisfação com condições de trabalho',
-      'Utilização de modalidades flexíveis por gênero',
-      'Redução de licenças médicas e afastamentos',
-      'Avaliação da conciliação trabalho-família'
+      'Número de medidas estruturais implantadas (ex: salas de amamentação, horários flexíveis, políticas de teletrabalho)',
+      'Número de servidoras beneficiadas diretamente por essas medidas',
+      'Grau de satisfação das usuárias com as condições de infraestrutura instituídas (via pesquisa ou escuta ativa)'
+    ],
+    submodules: [
+      {
+        id: 'apoio-cuidado',
+        title: 'Apoio ao Cuidado',
+        description:
+          'Suporte estendido à parentalidade e responsabilidades de cuidado, articulado com instituições públicas e comunitárias.',
+        indicators: [
+          'Número de parcerias firmadas com instituições públicas ou comunitárias para suporte ao cuidado (ex: creches, espaços de acolhimento intergeracional, centros de referência)',
+          'Existência de programas institucionais de apoio a servidoras com responsabilidades de cuidado',
+          'Número de beneficiárias de medidas de suporte extrainstitucional à parentalidade ou cuidado',
+          'Percepção das servidoras sobre a compatibilidade entre responsabilidades de cuidado e desempenho em funções de liderança (via pesquisa)'
+        ]
+      },
+      {
+        id: 'lideranca-remota',
+        title: 'Liderança em Modalidade Remota',
+        description:
+          'Reconhecimento e validação da autoridade de mulheres líderes em regimes de trabalho remoto e híbrido.',
+        indicators: [
+          'Percentual de cargos de liderança ocupados por mulheres em regime remoto ou híbrido',
+          'Número de lideranças femininas que operam remotamente com avaliação positiva de desempenho (formal ou por pares)',
+          'Número de iniciativas internas que reconhecem ou valorizam boas práticas de gestão remota protagonizadas por mulheres',
+          'Existência de barreiras relatadas à autoridade e visibilidade de mulheres líderes em trabalho remoto (via escuta qualificada ou pesquisa)'
+        ]
+      }
     ]
   },
   {
@@ -153,11 +174,9 @@ export const modules: Module[] = [
       'Reconhecimento Público: Destacar líderes que promovem a inclusão'
     ],
     indicators: [
-      'Percentual de líderes masculinos capacitados em diversidade',
-      'Número de compromissos formais assinados',
-      'Avaliação da cultura organizacional inclusiva',
-      'Taxa de nomeações diversas por gestor',
-      'Índice de satisfação das equipes com liderança inclusiva'
+      'Número de gestores homens que participaram de ações de sensibilização ou formação em equidade de gênero',
+      'Número de pactos institucionais assinados com a participação ou liderança de homens com poder decisório',
+      'Percentual de gestores que assumiram publicamente compromissos com a agenda de paridade (com registro documental)'
     ],
     barriers: [
       'Meritocracia Mal Compreendida: Visão de que paridade prejudica a competência',
@@ -189,11 +208,10 @@ export const modules: Module[] = [
       'Parcerias com Coletivos: Articulação com redes de mulheres negras, indígenas e PCDs'
     ],
     indicators: [
-      'Percentual de mulheres negras em cargos de natureza especial',
-      'Representatividade de mulheres indígenas e PCDs em chefias',
-      'Diversidade racial nos bancos de talentos',
-      'Número de programas com recorte interseccional ativos',
-      'Avaliação de pertencimento por grupo demográfico'
+      'Percentual de mulheres negras, indígenas e com deficiência entre as mulheres em cargos DAS/FCPE',
+      'Distribuição territorial das lideranças femininas (Norte, Nordeste, Centro-Oeste, Sudeste, Sul)',
+      'Diversidade de trajetórias profissionais e funcionais das lideranças femininas (escolaridade, vinculação, origem da carreira)',
+      'Índice de diversidade intra-grupo feminino (adaptado de métricas de inclusão institucional)'
     ],
     barriers: [
       'Teto de Concreto: Barreira estrutural que vai além do "teto de vidro" para mulheres racializadas',

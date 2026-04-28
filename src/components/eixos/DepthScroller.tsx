@@ -56,16 +56,28 @@ interface SlideLayerProps {
 function SlideLayer({ index, total, progress, children }: SlideLayerProps) {
   const segment = useTransform(progress, (p) => p * (total + 0.6) - index);
 
-  const opacity = useTransform(segment, [-0.5, 0, 0.85, 3.5], [0, 1, 1, 0]);
-  const scale = useTransform(segment, [-0.5, 0, 1, 3.5], [0.94, 1, 1, 0.78]);
-  const y = useTransform(segment, [-0.5, 0, 1, 3.5], [40, 0, -8, -32]);
+  const opacity = useTransform(
+    segment,
+    [-0.5, 0, 0.5, 1.2, 3],
+    [0, 1, 1, 0.12, 0.04]
+  );
+  const scale = useTransform(
+    segment,
+    [-0.5, 0, 0.5, 1.2, 3],
+    [0.94, 1, 1, 0.88, 0.78]
+  );
+  const y = useTransform(
+    segment,
+    [-0.5, 0, 0.5, 1.2, 3],
+    [42, 0, -12, -38, -64]
+  );
 
   const filter = useTransform(segment, (s) => {
-    if (s <= 0.85) return 'blur(0px) saturate(1) contrast(1)';
-    const recess = Math.min(Math.max(s - 0.85, 0), 3);
-    const blur = recess * 4.5;
-    const sat = Math.max(1 - recess * 0.32, 0.32);
-    const contrast = Math.max(1 - recess * 0.2, 0.55);
+    if (s <= 0.5) return 'blur(0px) saturate(1) contrast(1)';
+    const recess = Math.min(Math.max(s - 0.5, 0), 3);
+    const blur = Math.min(recess * 9, 22);
+    const sat = Math.max(1 - recess * 0.55, 0.15);
+    const contrast = Math.max(1 - recess * 0.32, 0.4);
     return `blur(${blur.toFixed(2)}px) saturate(${sat.toFixed(2)}) contrast(${contrast.toFixed(2)})`;
   });
 
@@ -78,10 +90,11 @@ function SlideLayer({ index, total, progress, children }: SlideLayerProps) {
         y,
         filter,
         zIndex: index + 1,
-        transformOrigin: '50% 50%'
+        transformOrigin: '50% 50%',
+        pointerEvents: 'none'
       }}
     >
-      {children}
+      <div className="w-full h-full pointer-events-auto">{children}</div>
     </motion.div>
   );
 }

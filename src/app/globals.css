@@ -230,3 +230,19 @@ body {
   0%, 100% { opacity: 0.4; transform: scaleY(0.8); }
   50% { opacity: 1; transform: scaleY(1); }
 }
+
+@keyframes eixoBolinhaTraversa {
+  0%, 100% { left: 10%; }
+  50% { left: 90%; }
+}
+
+.eixo-bolinha-traversa {
+  animation: eixoBolinhaTraversa 10s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eixo-bolinha-traversa {
+    animation: none;
+    left: 50%;
+  }
+}

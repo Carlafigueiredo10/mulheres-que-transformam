@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function EixosLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="eixos-theme eixos-grain min-h-screen relative overflow-x-hidden">
+    <div className="eixos-theme eixos-grain min-h-screen relative overflow-x-clip">
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md" style={{ background: 'rgba(15,16,20,0.55)' }}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
