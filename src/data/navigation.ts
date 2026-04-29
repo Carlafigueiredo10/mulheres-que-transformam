@@ -76,7 +76,7 @@ export const footerNavigation: NavigationSection[] = [
   {
     title: 'Rede Conecta',
     links: [
-      { name: 'Sobre a Rede', href: '/#rede-conecta' },
+      { name: 'O Poder do Coletivo', href: '/poder-do-coletivo' },
       { name: 'Catálogo de Redes', href: '/catalogo-redes' },
       { name: 'Mapa de Redes', href: '/mapa-redes' },
       { name: 'Cadastrar Rede', href: '/cadastrar-rede' },

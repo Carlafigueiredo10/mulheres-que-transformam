@@ -124,6 +124,48 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
+/* Botões padrão — uma única assinatura visual para CTAs em toda a landing.
+   Primário = ação dominante (ouro sólido). Secundário = ação alternativa (ghost com borda ouro). */
+.eixos-theme .btn-primary,
+.eixos-theme .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s ease, filter 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.eixos-theme .btn-primary {
+  background: var(--eixo-ouro);
+  color: var(--eixo-grafite);
+  border: 1px solid var(--eixo-ouro);
+}
+
+.eixos-theme .btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.eixos-theme .btn-secondary {
+  background: transparent;
+  color: var(--eixo-off-white);
+  border: 1px solid rgba(201, 168, 106, 0.35);
+  font-weight: 500;
+}
+
+.eixos-theme .btn-secondary:hover {
+  border-color: var(--eixo-ouro);
+  transform: translateY(-1px);
+}
+
 /* Grão cinematográfico discreto */
 .eixos-grain::before {
   content: '';
@@ -245,4 +287,50 @@ body {
     animation: none;
     left: 50%;
   }
+}
+
+/* ========================================================================
+   Redes — design tokens (escopo: /poder-do-coletivo + RedeConectaSection)
+   Roxo profundo + terracota/cobre. Identidade do conteúdo "Poder do Coletivo".
+   ======================================================================== */
+.redes-theme {
+  --rede-roxo-deep: #2A1454;
+  --rede-roxo: #3D1F73;
+  --rede-roxo-2: #4F2A8F;
+  --rede-violeta: #8B5CF6;
+  --rede-cobre: #C97B5A;
+  --rede-cobre-soft: #D9926E;
+  --rede-cobre-deep: #A65D40;
+  --rede-cream: #F4EFE6;
+  --rede-cream-soft: rgba(244, 239, 230, 0.78);
+  --rede-cream-dim: rgba(244, 239, 230, 0.5);
+  --rede-line: rgba(244, 239, 230, 0.12);
+}
+
+.redes-theme .font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-feature-settings: "ss01", "ss02";
+  letter-spacing: -0.012em;
+}
+
+.redes-theme .font-body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+@keyframes redeNumberPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.rede-number {
+  animation: redeNumberPulse 4s ease-in-out infinite;
+}
+
+@keyframes redeRingFloat {
+  0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+  50% { transform: translate3d(0,-6px,0) rotate(2deg); }
+}
+
+.rede-ring-float {
+  animation: redeRingFloat 9s ease-in-out infinite;
 }

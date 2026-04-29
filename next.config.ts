@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // ESLint habilitado durante builds para garantir qualidade do código
+  async redirects() {
+    return [
+      {
+        source: '/poder-do-coletivo',
+        destination: '/rede-conecta',
+        permanent: true
+      }
+    ];
+  }
 };
 
 export default nextConfig;
