@@ -163,7 +163,7 @@ export default function HomeHero() {
               color: 'var(--eixo-ouro)'
             }}
           >
-            Meta de paridade até 2027
+            Meta de paridade até 2030
           </span>
         </div>
 
@@ -193,7 +193,7 @@ export default function HomeHero() {
         aria-hidden
       >
         <span className="text-[10px] uppercase tracking-[0.4em] font-body text-[var(--eixo-off-white-dim)]">
-          Brasília &middot; 2024 – 2027
+          Brasília &middot; 2024 – 2030
         </span>
         <span
           className="block w-px h-8"

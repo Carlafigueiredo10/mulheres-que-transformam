@@ -84,7 +84,7 @@ export default function EnhancedHero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
             {[
               { number: '27%', label: 'Atual representação' },
-              { number: '50%', label: 'Meta até 2027' },
+              { number: '50%', label: 'Meta até 2030' },
               { number: '6', label: 'Módulos estratégicos' },
               { number: '90%', label: 'Apoio da sociedade' }
             ].map((stat, index) => (

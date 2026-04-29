@@ -121,7 +121,7 @@ export default function DashboardPrincipal() {
             <div className="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-cyan-500">
               <div className="text-4xl font-bold text-cyan-600 mb-2">50%</div>
               <div className="text-gray-800 font-semibold mb-2">Nossa meta ambiciosa</div>
-              <div className="text-gray-600 text-sm">Alcançar paridade de gênero em cargos de liderança até 2027 - uma revolução silenciosa</div>
+              <div className="text-gray-600 text-sm">Alcançar paridade de gênero em cargos de liderança até 2030 - uma revolução silenciosa</div>
             </div>
           </div>
 
@@ -399,7 +399,7 @@ export default function DashboardPrincipal() {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold mb-2">Impacto</div>
-                  <div className="text-white/80 text-sm">Transformação mensurável até 2027</div>
+                  <div className="text-white/80 text-sm">Transformação mensurável até 2030</div>
                 </div>
               </div>
 

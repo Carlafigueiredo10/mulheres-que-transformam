@@ -21,6 +21,11 @@ export const mainNavigation: NavigationLink[] = [
     description: 'Página inicial',
   },
   {
+    name: 'Manifesto',
+    href: '/manifesto',
+    description: 'Por uma engenharia da paridade',
+  },
+  {
     name: 'Módulos',
     href: '/#modulos',
     description: 'Os 6 módulos estratégicos',

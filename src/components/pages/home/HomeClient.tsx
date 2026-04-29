@@ -1,6 +1,7 @@
 'use client';
 
 import HomeHero from '@/components/ui/HomeHero';
+import ManifestoTeaser from '@/components/ui/ManifestoTeaser';
 import HomeModulesSection from '@/components/ui/HomeModulesSection';
 import EixosTransversaisSection from '@/components/ui/EixosTransversaisSection';
 import SocialProofSection from '@/components/ui/SocialProofSection';
@@ -12,6 +13,7 @@ export default function HomeClient() {
   return (
     <div>
       <HomeHero />
+      <Reveal delay={0.03}><ManifestoTeaser /></Reveal>
       <Reveal delay={0.04}><HomeModulesSection /></Reveal>
       <Reveal delay={0.06}><EixosTransversaisSection /></Reveal>
       <Reveal delay={0.08}><SecondaryProgramsSection /></Reveal>

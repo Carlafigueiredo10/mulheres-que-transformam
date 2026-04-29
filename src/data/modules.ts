@@ -44,7 +44,7 @@ export const modules: Module[] = [
       'Estabelecer critérios objetivos para avaliação de competências de liderança'
     ],
     strategies: [
-      'Metas Graduais: Estabelecimento de marcos percentuais anuais até atingir 50% até 2027',
+      'Metas Graduais: Estabelecimento de marcos percentuais anuais até atingir 50% até 2030',
       'Revisão de Processos: Análise e reformulação dos critérios de seleção e nomeação',
       'Banco de Talentos: Identificação proativa de mulheres qualificadas em todos os órgãos',
       'Comitês de Diversidade: Criação de grupos para acompanhar nomeações e promoções',
@@ -259,6 +259,6 @@ export const statistics: Statistic[] = [
   },
   {
     value: '50%',
-    label: 'Meta de paridade de gênero até 2027'
+    label: 'Meta de paridade de gênero até 2030'
   }
 ];
