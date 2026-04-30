@@ -53,6 +53,16 @@ export default function HomeModulesSection() {
                     style={{ borderColor: 'rgba(201, 168, 106, 0.4)' }}
                   />
 
+                  {/* Cortina dourada — desce do topo no hover */}
+                  <span
+                    aria-hidden
+                    className="absolute top-0 left-0 right-0 h-0 group-hover:h-full transition-all duration-500 ease-out pointer-events-none"
+                    style={{
+                      background:
+                        'linear-gradient(to bottom, rgba(201, 168, 106, 0.16), rgba(201, 168, 106, 0.04))'
+                    }}
+                  />
+
                   <div
                     aria-hidden
                     className="font-display absolute -top-2 -right-1 text-[6rem] leading-none font-medium select-none pointer-events-none"

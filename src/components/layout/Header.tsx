@@ -77,7 +77,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-body text-sm text-[var(--eixo-off-white)]/65 hover:text-[var(--eixo-off-white)] hover:-translate-y-px transition-all duration-200"
+                className="nav-scanline font-body text-sm text-[var(--eixo-off-white)]/65 hover:text-[var(--eixo-off-white)] transition-colors duration-200"
               >
                 {item.name}
               </Link>

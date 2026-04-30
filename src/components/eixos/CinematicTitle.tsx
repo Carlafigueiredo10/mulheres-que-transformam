@@ -8,6 +8,7 @@ interface CinematicTitleProps {
   subtitle?: string;
   softSweep?: boolean;
   energyDelay?: number;
+  startDelay?: number;
 }
 
 export default function CinematicTitle({
@@ -15,16 +16,17 @@ export default function CinematicTitle({
   accent,
   subtitle,
   softSweep = false,
-  energyDelay = 1700
+  energyDelay = 1700,
+  startDelay = 0
 }: CinematicTitleProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
   const [energyArmed, setEnergyArmed] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setEnergyArmed(true), energyDelay);
+    const t = setTimeout(() => setEnergyArmed(true), energyDelay + startDelay);
     return () => clearTimeout(t);
-  }, [energyDelay]);
+  }, [energyDelay, startDelay]);
 
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -55,7 +57,7 @@ export default function CinematicTitle({
       <h1 className="font-display text-[clamp(2.4rem,6vw,5.2rem)] leading-[1.05] tracking-tight font-medium">
         <span
           className="block eixo-sharpen text-[var(--eixo-off-white)]"
-          style={{ animationDelay: '200ms' }}
+          style={{ animationDelay: `${200 + startDelay}ms` }}
         >
           {primary}
         </span>
@@ -63,7 +65,7 @@ export default function CinematicTitle({
           className={`block eixo-sharpen eixo-energy-text ${softSweep ? 'eixo-energy-text--soft' : ''} mt-2 ${
             energyArmed ? 'eixo-energy-run' : ''
           }`}
-          style={{ animationDelay: '900ms' }}
+          style={{ animationDelay: `${900 + startDelay}ms` }}
         >
           {accent}
         </span>
@@ -71,7 +73,7 @@ export default function CinematicTitle({
       {subtitle && (
         <p
           className="font-body eixo-sharpen mt-8 max-w-2xl mx-auto text-base md:text-lg text-[var(--eixo-off-white-soft)] leading-relaxed"
-          style={{ animationDelay: '1500ms' }}
+          style={{ animationDelay: `${1500 + startDelay}ms` }}
         >
           {subtitle}
         </p>

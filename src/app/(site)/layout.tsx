@@ -4,7 +4,7 @@ import MotionShell from '@/components/motion/MotionShell';
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="eixos-theme min-h-screen">
+    <div className="eixos-theme eixos-grain min-h-screen">
       <Header />
       <MotionShell>
         <main>{children}</main>

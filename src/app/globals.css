@@ -154,6 +154,54 @@ body {
   transform: translateY(-1px);
 }
 
+.eixos-theme .btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  filter: brightness(0.96);
+  transition-duration: 0.05s;
+}
+
+/* CTA magnético — glow respirando em ritmo próprio (4.2s),
+   independente do resto da página. Cria gravidade visual. */
+@keyframes ctaMagneticPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 168, 106, 0);
+  }
+  50% {
+    box-shadow: 0 0 32px 6px rgba(201, 168, 106, 0.22);
+  }
+}
+
+.eixos-theme .cta-magnetic {
+  animation: ctaMagneticPulse 4.2s ease-in-out infinite;
+}
+
+/* Pausa o pulso no hover/active — o transform manda agora */
+.eixos-theme .cta-magnetic:hover,
+.eixos-theme .cta-magnetic:active {
+  animation-play-state: paused;
+  box-shadow: 0 0 28px 4px rgba(201, 168, 106, 0.18);
+}
+
+/* Linha de scanning — link de menu ganha filete dourado se expandindo no hover */
+.eixos-theme .nav-scanline {
+  position: relative;
+}
+.eixos-theme .nav-scanline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: var(--eixo-ouro);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.eixos-theme .nav-scanline:hover::after {
+  transform: scaleX(1);
+}
+
 .eixos-theme .btn-secondary {
   background: transparent;
   color: var(--eixo-off-white);
@@ -228,7 +276,26 @@ body {
   background-size: 260% 100%;
 }
 .eixo-energy-text--soft.eixo-energy-run {
-  animation: eixoEnergySweep 750ms cubic-bezier(0.45, 0, 0.15, 1) forwards;
+  animation:
+    eixoEnergySweep 750ms cubic-bezier(0.45, 0, 0.15, 1) forwards,
+    eixoAccentBreath 5.5s ease-in-out 900ms infinite;
+}
+
+/* Imperfeição sofisticada — micro aberração cromática + glow respirando.
+   Aplicado SOMENTE no accent ("transformam") após o sweep terminar. */
+@keyframes eixoAccentBreath {
+  0%, 100% {
+    text-shadow:
+      -0.3px 0 rgba(217, 70, 239, 0.10),
+      0.3px 0 rgba(168, 85, 247, 0.08),
+      0 0 14px rgba(201, 168, 106, 0.05);
+  }
+  50% {
+    text-shadow:
+      -0.5px 0 rgba(217, 70, 239, 0.18),
+      0.5px 0 rgba(168, 85, 247, 0.16),
+      0 0 28px rgba(201, 168, 106, 0.13);
+  }
 }
 
 @keyframes eixoEnergySweep {

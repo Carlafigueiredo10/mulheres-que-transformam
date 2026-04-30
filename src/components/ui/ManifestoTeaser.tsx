@@ -34,7 +34,7 @@ export default function ManifestoTeaser() {
         </div>
 
         <h2
-          className="font-display font-medium mb-12"
+          className="font-display font-medium mb-8"
           style={{
             fontSize: 'clamp(2.4rem, 6vw, 5rem)',
             color: 'var(--eixo-off-white)',
@@ -46,6 +46,20 @@ export default function ManifestoTeaser() {
           <span style={{ color: 'var(--eixo-ouro)' }}>engenharia</span> da
           paridade.
         </h2>
+
+        <p
+          className="font-display max-w-2xl mx-auto mb-12 italic"
+          style={{
+            fontSize: 'clamp(1.1rem, 1.8vw, 1.5rem)',
+            color: 'var(--eixo-off-white-soft)',
+            lineHeight: 1.4
+          }}
+        >
+          Diversidade não é fim.{' '}
+          <span style={{ color: 'var(--eixo-ouro)', fontStyle: 'normal' }}>
+            É como o Estado decide melhor.
+          </span>
+        </p>
 
         <Link href="/manifesto" className="btn-secondary">
           Ler o manifesto na íntegra

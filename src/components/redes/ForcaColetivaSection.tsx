@@ -27,6 +27,63 @@ export default function ForcaColetivaSection() {
     <section className="relative py-24 md:py-32 px-6" style={{ background: 'var(--rede-roxo-deep)' }}>
       <div className="max-w-6xl mx-auto space-y-32">
 
+        {/* Networking vs Netweaving — modelo da rede */}
+        <div>
+          <div className="flex items-center gap-3 mb-7 text-[10px] uppercase tracking-[0.32em] font-body font-semibold" style={{ color: 'var(--rede-cobre-soft)' }}>
+            <span aria-hidden className="inline-block w-12 h-px" style={{ background: 'var(--rede-cobre-soft)' }} />
+            O modelo da rede
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-10 mb-10">
+            <div
+              className="rounded-2xl p-8 md:p-10 border"
+              style={{ background: 'rgba(15, 6, 35, 0.55)', borderColor: 'var(--rede-line)' }}
+            >
+              <h3
+                className="font-display text-2xl md:text-3xl font-medium mb-6"
+                style={{ color: 'var(--rede-cream)', opacity: 0.65 }}
+              >
+                Networking
+              </h3>
+              <NetworkingSvg />
+              <p
+                className="font-display text-lg md:text-xl mt-6 italic"
+                style={{ color: 'var(--rede-cream-soft)', opacity: 0.7 }}
+              >
+                &ldquo;O que eu posso ganhar?&rdquo;
+              </p>
+            </div>
+
+            <div
+              className="rounded-2xl p-8 md:p-10 border"
+              style={{ background: 'rgba(201, 123, 90, 0.08)', borderColor: 'rgba(201, 123, 90, 0.4)' }}
+            >
+              <h3
+                className="font-display text-2xl md:text-3xl font-medium mb-6"
+                style={{ color: 'var(--rede-cream)' }}
+              >
+                Netweaving
+              </h3>
+              <NetweavingSvg />
+              <p
+                className="font-display text-lg md:text-xl mt-6 italic"
+                style={{ color: 'var(--rede-cream)' }}
+              >
+                &ldquo;Quem eu posso ajudar a conectar?&rdquo;
+              </p>
+            </div>
+          </div>
+
+          <p
+            className="font-body text-base md:text-lg leading-relaxed max-w-3xl"
+            style={{ color: 'var(--rede-cream-soft)' }}
+          >
+            Abordagem colaborativa baseada em reciprocidade, ajuda mútua e generosidade.
+            Construir relacionamentos genuínos, conectar pessoas com propósitos comuns —
+            servir antes de ser servido.
+          </p>
+        </div>
+
         {/* A Força da Conexão Coletiva */}
         <div className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7">
@@ -118,6 +175,60 @@ export default function ForcaColetivaSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+function NetworkingSvg() {
+  return (
+    <svg viewBox="0 0 320 200" className="w-full h-auto" aria-hidden>
+      <defs>
+        <marker id="arrowMutedNW" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#5C4878" />
+        </marker>
+      </defs>
+      <circle cx="40" cy="40" r="13" fill="#3D1F73" opacity="0.55" />
+      <circle cx="280" cy="40" r="13" fill="#3D1F73" opacity="0.55" />
+      <circle cx="40" cy="160" r="13" fill="#3D1F73" opacity="0.55" />
+      <circle cx="280" cy="160" r="13" fill="#3D1F73" opacity="0.55" />
+      <circle cx="160" cy="100" r="20" fill="#5C4878" />
+      <line x1="54" y1="52" x2="142" y2="92" stroke="#5C4878" strokeWidth="1.5" markerEnd="url(#arrowMutedNW)" opacity="0.75" />
+      <line x1="266" y1="52" x2="178" y2="92" stroke="#5C4878" strokeWidth="1.5" markerEnd="url(#arrowMutedNW)" opacity="0.75" />
+      <line x1="54" y1="148" x2="142" y2="108" stroke="#5C4878" strokeWidth="1.5" markerEnd="url(#arrowMutedNW)" opacity="0.75" />
+      <line x1="266" y1="148" x2="178" y2="108" stroke="#5C4878" strokeWidth="1.5" markerEnd="url(#arrowMutedNW)" opacity="0.75" />
+    </svg>
+  );
+}
+
+function NetweavingSvg() {
+  return (
+    <svg viewBox="0 0 320 200" className="w-full h-auto" aria-hidden>
+      <defs>
+        <marker id="arrowCobreNW" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#C97B5A" />
+        </marker>
+      </defs>
+      <line x1="52" y1="40" x2="268" y2="40" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="268" y1="40" x2="52" y2="40" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="52" y1="160" x2="268" y2="160" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="268" y1="160" x2="52" y2="160" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="40" y1="52" x2="40" y2="148" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="40" y1="148" x2="40" y2="52" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="280" y1="52" x2="280" y2="148" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="280" y1="148" x2="280" y2="52" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="54" y1="50" x2="146" y2="92" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="146" y1="92" x2="54" y2="50" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="266" y1="50" x2="174" y2="92" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="174" y1="92" x2="266" y2="50" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="54" y1="150" x2="146" y2="108" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="146" y1="108" x2="54" y2="150" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="266" y1="150" x2="174" y2="108" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <line x1="174" y1="108" x2="266" y2="150" stroke="#C97B5A" strokeWidth="1.4" markerEnd="url(#arrowCobreNW)" opacity="0.85" />
+      <circle cx="40" cy="40" r="13" fill="#C97B5A" />
+      <circle cx="280" cy="40" r="13" fill="#C97B5A" />
+      <circle cx="40" cy="160" r="13" fill="#C97B5A" />
+      <circle cx="280" cy="160" r="13" fill="#C97B5A" />
+      <circle cx="160" cy="100" r="18" fill="#F4EFE6" />
+    </svg>
   );
 }
 

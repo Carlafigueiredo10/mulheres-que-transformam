@@ -40,6 +40,21 @@ export default function IsolamentoSection() {
             <CadeiraSolitaria />
           </div>
         </div>
+
+        <div
+          className="mt-24 md:mt-32 pt-16 md:pt-20 border-t"
+          style={{ borderColor: 'var(--rede-line)' }}
+        >
+          <blockquote
+            className="max-w-5xl mx-auto text-center font-display font-medium"
+            style={{ color: 'var(--rede-cream)', lineHeight: 1.18, letterSpacing: '-0.015em' }}
+          >
+            <p className="text-[clamp(1.5rem,3.2vw,2.5rem)] italic">
+              &ldquo;se a estrutura da nossa sociedade é pensada para desconexão, isolamento,
+              dominação, apropriação e exclusão, quão libertária uma comunidade realmente pode ser?&rdquo;
+            </p>
+          </blockquote>
+        </div>
       </div>
     </section>
   );

@@ -3,7 +3,6 @@ import DiagnosticoSection from '@/components/redes/DiagnosticoSection';
 import IsolamentoSection from '@/components/redes/IsolamentoSection';
 import ForcaColetivaSection from '@/components/redes/ForcaColetivaSection';
 import ComoFormarSection from '@/components/redes/ComoFormarSection';
-import CasesSection from '@/components/redes/CasesSection';
 import AcessoSection from '@/components/redes/AcessoSection';
 import FechamentoCTA from '@/components/redes/FechamentoCTA';
 
@@ -21,7 +20,6 @@ export default function RedeConectaPage() {
       <IsolamentoSection />
       <ForcaColetivaSection />
       <ComoFormarSection />
-      <CasesSection />
       <AcessoSection />
       <FechamentoCTA />
     </div>

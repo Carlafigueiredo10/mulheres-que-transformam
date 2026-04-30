@@ -1,27 +1,71 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import ParticleField from '@/components/eixos/ParticleField';
+import { useEffect, useRef, useState } from 'react';
+import NetworkField, {
+  type NetworkFieldHandle
+} from '@/components/eixos/NetworkField';
 import CinematicTitle from '@/components/eixos/CinematicTitle';
-import { orgaosAderentes } from '@/data/orgaos-aderentes';
 
 export default function HomeHero() {
   const [armed, setArmed] = useState(false);
-  const totalOrgaos = orgaosAderentes.length;
+  const sectionRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const networkRef = useRef<NetworkFieldHandle>(null);
+  const ctaPosRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    const t = setTimeout(() => setArmed(true), 100);
+    // Atraso intencional — a rede ganha vida primeiro, o título depois.
+    // Cria entrada cinematográfica: seed pulsa sozinho 600ms antes do conteúdo.
+    const t = setTimeout(() => setArmed(true), 600);
     return () => clearTimeout(t);
   }, []);
 
+  // Calcula posição do CTA no canvas (relativa à section) para o magnet
+  useEffect(() => {
+    const updateCtaPos = () => {
+      if (!ctaRef.current || !sectionRef.current) return;
+      const ctaRect = ctaRef.current.getBoundingClientRect();
+      const secRect = sectionRef.current.getBoundingClientRect();
+      ctaPosRef.current = {
+        x: ctaRect.left + ctaRect.width / 2 - secRect.left,
+        y: ctaRect.top + ctaRect.height / 2 - secRect.top
+      };
+    };
+    // Calcula depois que o layout assenta
+    const t1 = setTimeout(updateCtaPos, 50);
+    const t2 = setTimeout(updateCtaPos, 800);
+    window.addEventListener('resize', updateCtaPos);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener('resize', updateCtaPos);
+    };
+  }, []);
+
+  const onCtaEnter = () => {
+    const { x, y } = ctaPosRef.current;
+    networkRef.current?.setMagnet(x, y, 240, true);
+  };
+  const onCtaLeave = () => {
+    const { x, y } = ctaPosRef.current;
+    networkRef.current?.setMagnet(x, y, 240, false);
+  };
+  const onCtaClick = () => {
+    const { x, y } = ctaPosRef.current;
+    networkRef.current?.triggerRipple(x, y);
+  };
+
   const pillBaseClass =
-    'px-3 py-1.5 rounded-full border text-[10px] font-body font-semibold uppercase tracking-[0.18em] whitespace-nowrap';
+    'px-3 py-1 rounded-full border text-[9px] font-body font-semibold uppercase tracking-[0.22em] whitespace-nowrap';
 
   return (
-    <section className="relative min-h-[100svh] py-32 flex items-center justify-center overflow-hidden">
-      <ParticleField
-        intensity="home"
+    <section
+      ref={sectionRef}
+      className="relative min-h-[100svh] py-32 flex items-center justify-center overflow-hidden"
+    >
+      <NetworkField
+        ref={networkRef}
         className="absolute inset-0 w-full h-full"
       />
 
@@ -70,27 +114,6 @@ export default function HomeHero() {
       />
 
       <div className="relative z-10 px-6 max-w-5xl mx-auto text-center">
-        {/* Âncora institucional — quem assina */}
-        <div
-          className="mb-8 flex flex-col items-center gap-3"
-          style={{
-            opacity: armed ? 1 : 0,
-            transition: 'opacity 1000ms ease-out 100ms'
-          }}
-        >
-          <span
-            aria-hidden
-            className="block w-px h-10"
-            style={{
-              background:
-                'linear-gradient(to bottom, transparent, rgba(201,168,106,0.45))'
-            }}
-          />
-          <div className="text-[10px] uppercase tracking-[0.4em] font-body text-[var(--eixo-off-white-soft)]">
-            Ministério da Gestão e da Inovação
-          </div>
-        </div>
-
         {/* Eyebrow */}
         <div
           className="mb-10 flex items-center justify-center gap-4 text-[10px] uppercase tracking-[0.32em] font-body font-semibold text-[var(--eixo-ouro)]"
@@ -115,52 +138,82 @@ export default function HomeHero() {
         <CinematicTitle
           primary="Mulheres que"
           accent="transformam."
-          subtitle="Programa federal pela paridade de gênero na liderança da administração pública."
           softSweep
           energyDelay={1900}
+          startDelay={600}
         />
 
-        {/* Segunda linha - declarativa, dá gravitas */}
+        {/* PROTAGONISTA — linha funcional. Direta, clara, ancoradora.
+            Contraste levemente reduzido (0.88) e mais espaço acima (mt-14)
+            pra criar separação clara do título. */}
         <p
-          className="font-body eixo-sharpen mt-5 max-w-xl mx-auto text-sm md:text-base text-[var(--eixo-off-white-dim)] leading-relaxed italic"
-          style={{ animationDelay: '2100ms' }}
+          className="font-body eixo-sharpen mt-14 max-w-3xl mx-auto leading-snug font-medium"
+          style={{
+            fontSize: 'clamp(1.05rem, 1.7vw, 1.4rem)',
+            color: 'rgba(242, 234, 217, 0.88)',
+            animationDelay: '2400ms'
+          }}
+        >
+          Para instituições que lideram — ou querem liderar — a paridade de
+          gênero no Brasil.
+        </p>
+
+        {/* LEGENDA — assinatura institucional rebaixada. Contexto, não protagonista. */}
+        <p
+          className="font-body eixo-sharpen mt-5 max-w-xl mx-auto text-xs md:text-sm leading-relaxed"
+          style={{
+            color: 'rgba(242, 234, 217, 0.42)',
+            letterSpacing: '0.02em',
+            animationDelay: '2900ms'
+          }}
+        >
+          Articulada por servidoras e gestoras da administração pública.
+        </p>
+
+        {/* ECO — citação poética. Quase imperceptível, aparece bem depois. */}
+        <p
+          className="font-body eixo-sharpen mt-10 max-w-xl mx-auto text-xs leading-relaxed italic"
+          style={{
+            color: 'rgba(242, 234, 217, 0.18)',
+            animationDelay: '4000ms'
+          }}
         >
           &ldquo;Para que a metade da população não fique de fora da metade
           da decisão.&rdquo;
         </p>
 
-        {/* Pílulas-prova: substância concreta do programa */}
+        {/* Pílulas-HUD — coordenadas de sistema, orbitando a experiência */}
         <div
-          className="mt-10 flex flex-wrap items-center justify-center gap-2"
+          className="mt-12 flex flex-wrap items-center justify-center gap-x-5 gap-y-3"
           style={{
-            opacity: armed ? 1 : 0,
-            transition: 'opacity 900ms ease-out 2400ms'
+            opacity: armed ? 0.75 : 0,
+            transition: 'opacity 900ms ease-out 2500ms'
           }}
         >
           <span
-            className={`${pillBaseClass} text-[var(--eixo-off-white-soft)]`}
-            style={{ borderColor: 'rgba(201, 168, 106, 0.25)' }}
+            className={pillBaseClass}
+            style={{
+              borderColor: 'rgba(201, 168, 106, 0.16)',
+              color: 'rgba(242, 234, 217, 0.55)'
+            }}
           >
             6 módulos estratégicos
           </span>
           <span
-            className={`${pillBaseClass} text-[var(--eixo-off-white-soft)]`}
-            style={{ borderColor: 'rgba(201, 168, 106, 0.25)' }}
+            className={pillBaseClass}
+            style={{
+              borderColor: 'rgba(201, 168, 106, 0.16)',
+              color: 'rgba(242, 234, 217, 0.55)'
+            }}
           >
             5 eixos transversais
           </span>
           <span
-            className={`${pillBaseClass} text-[var(--eixo-off-white-soft)]`}
-            style={{ borderColor: 'rgba(201, 168, 106, 0.25)' }}
-          >
-            {totalOrgaos} órgãos aderentes
-          </span>
-          <span
             className={pillBaseClass}
             style={{
-              borderColor: 'rgba(201, 168, 106, 0.55)',
-              background: 'rgba(201, 168, 106, 0.10)',
-              color: 'var(--eixo-ouro)'
+              borderColor: 'rgba(201, 168, 106, 0.32)',
+              background: 'rgba(201, 168, 106, 0.05)',
+              color: 'rgba(201, 168, 106, 0.85)'
             }}
           >
             Meta de paridade até 2030
@@ -177,7 +230,14 @@ export default function HomeHero() {
               'opacity 700ms ease-out 2900ms, transform 700ms ease-out 2900ms'
           }}
         >
-          <Link href="/como-aderir" className="btn-primary">
+          <Link
+            ref={ctaRef}
+            href="/como-aderir"
+            className="btn-primary cta-magnetic"
+            onMouseEnter={onCtaEnter}
+            onMouseLeave={onCtaLeave}
+            onClick={onCtaClick}
+          >
             Iniciar adesão institucional
           </Link>
         </div>
